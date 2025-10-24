@@ -1,0 +1,753 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Documentação do Processo de Subida do AVA - Maranhão</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(134, 131, 126, 1);
+	fill: rgba(134, 131, 126, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d02e13d8-80b3-4887-b378-da0929608fbd" class="page sans"><header><h1 class="page-title">Documentação do Processo de Subida do AVA - Maranhão</h1><p class="page-description"></p></header><div class="page-body"><p id="9e6246f3-5e38-4d5b-b5fe-7574d8550bfe" class=""><strong>Documentação do Processo de Subida do AVA - Maranhão</strong></p><p id="b5097267-fb35-4701-a5e1-3486514ce0ca" class="">Elaborado por <strong>NIC – Núcleo de Inovação e Criatividade</strong></p><p id="79b6b157-4e41-4b4c-9980-c759d513f87e" class="">Este documento padroniza o fluxo de produção dos livros do Estudante e do Professor, da revisão de tageamento até a publicação no AVA. Foi desenhado para garantir qualidade, rastreabilidade e treinamento rápido da equipe.</p><p id="296588e9-62ef-8078-99d2-c1c9697b745c" class="">
+</p><hr id="ce666cb0-09e1-4b9d-86b9-081c618ee9b5"/><nav id="b273a36c-4950-47e2-bb95-b8f831548993" class="table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#86292c5f-f4ae-48bd-808f-847d4efaaefe">Visão geral</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0d739030-5df5-4b9e-80ac-c520dc1b8412">Ferramentas e acessos</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#76500d0d-55bc-4732-8327-28531b0a6092">Etapas do processo</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#180b299a-f015-4a74-be91-5fd5478678aa">1. Drive da .EDU: localizar material e estrutura do curso</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4dff2ec8-212c-4d55-b4bd-c19ada291411">2. Revisão de tageamento e geração de PDF no PDF Generator</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#37371d96-36b9-4c6a-9b5a-d2cda127dc0d">Visão geral da etapa</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#35a55f12-3785-486f-824f-e1c7b68e7455">O que são tags e como usar</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b89f45e6-298c-4183-ad64-10f218470518">Exemplos práticos</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fdad0cff-87c1-4bd3-b585-fb186b153838">Validação no PDF Generator (passo a passo)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e55b94c9-b7d4-413f-a068-b986d4b06618">Anti‑padrões que geram retrabalho</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#161d43fb-5431-4941-ae5d-6d81d21131ed">Boas práticas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5a5f6637-3b33-49c4-8729-f2cc901a813a">Guia rápido de tags</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f494c44f-fe1b-4d12-8104-307731de4eed">3. Inclusão de capas no PDF</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#68633db8-3799-4518-9012-7d3fd21bdcc6">4. Geração do pacote TAR.GZ no EduGenerator</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d1526dba-2e27-4e5d-b591-a28f86c02802">5. Criação e importação no AVA (Studio IPGC)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#39f699f5-6223-4b1b-bfc9-94fd68916eed">Específico para o Livro do Professor</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e6666e6b-beb4-4e31-b949-b78e39a610fb">6. Capa, PDF e nome de exibição no AVA</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#94e42a6d-9d5e-449c-8d23-995b2f3fb76d">7. Entrega final no Drive do IPGC</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b51179ad-9992-43ab-8451-d487417c5e96">Boas práticas</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c9ac94bf-566a-4b25-968b-6d5cf9241ab2">Referências rápidas de tags</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15d8ae86-4bde-40f7-9ab1-4040c1d67645">Integrações e plataformas</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#06891fdb-c407-4d38-8540-1098fc73ee5c">Encerramento</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31a3aea0-9bf5-48c2-93ef-198b8775718c">Mapa Rápido do Processo</a></div></nav><hr id="b1efa809-7df9-48fe-abf3-4897328a8cf1"/><p id="296588e9-62ef-8010-8a85-c201e1e91991" class="">
+</p><p id="296588e9-62ef-8023-b691-e9389f1d503c" class="">
+</p><h2 id="86292c5f-f4ae-48bd-808f-847d4efaaefe" class="">Visão geral</h2><ul id="644aa9bb-89a7-4d53-9f46-e33994ae5b0d" class="bulleted-list"><li style="list-style-type:disc">Objetivo: transformar DOCX em PDFs profissionais e cursos navegáveis no AVA, com padronização por eixo e por tipo de livro.</li></ul><ul id="b81569f2-3134-4467-968c-08c906ef4452" class="bulleted-list"><li style="list-style-type:disc">Escopo: livros do Estudante e do Professor.</li></ul><ul id="71c29fa1-49a7-4f10-a842-6245d5164293" class="bulleted-list"><li style="list-style-type:disc">Resultado: PDF final validado, pacote TAR.GZ gerado e curso publicado no AVA com organização correta.</li></ul><figure class="callout" style="white-space:pre-wrap;display:flex" id="d82b3545-0ac6-4512-ad2a-beedfc7003cb"><div style="width:100%"><p id="de4481d4-0345-4749-80b8-4f1b35299d48" class=""><strong>Importante</strong></p><p id="0c0990d6-bf6e-4b1a-a68d-d5a9660024bd" class="">Este guia é aplicável tanto para o Livro do Estudante quanto para o Livro do Professor. Em pontos onde houver diferenças, elas estarão destacadas.</p></div></figure><hr id="7f9b62ce-5559-40f8-98e0-b7026fb57c4f"/><h2 id="0d739030-5df5-4b9e-80ac-c520dc1b8412" class="">Ferramentas e acessos</h2><ul id="a4391b9b-6b5a-4fc3-97a9-3cdbebeeb3b5" class="bulleted-list"><li style="list-style-type:disc"><strong>Drive da .EDU</strong>: repositório de DOCX e materiais.</li></ul><ul id="7413ec03-8702-44dc-9e84-451973f305cb" class="bulleted-list"><li style="list-style-type:disc"><strong>PDF Generator</strong>: validação do tageamento e geração do PDF.<ul id="d59d81e6-bb72-49b6-8ab0-33f142a7abfb" class="bulleted-list"><li style="list-style-type:circle">Acesso: <a href="http://145.223.92.122:5175/login">Link 1</a> | <a href="https://webdoc2pdf.pdinfinita.com/login">Link 2</a></li></ul></li></ul><ul id="951095f0-6508-45a3-b9c6-e9fb7ed2f055" class="bulleted-list"><li style="list-style-type:disc"><strong>Capas por eixo (Drive)</strong>: modelos padronizados do Estudante e Professor.<ul id="9f42d892-416b-467d-8582-81a8910d472c" class="bulleted-list"><li style="list-style-type:circle">Acesso: <a href="https://drive.google.com/drive/folders/15DUWysbtmOyplrau8rfwwrL4_jCR1hon?usp=sharing">Capas por eixo</a></li></ul></li></ul><ul id="cc71f7e7-9e4d-49c1-b333-96b91cc03f8a" class="bulleted-list"><li style="list-style-type:disc"><strong>iLovePDF</strong>: para unir PDF do Professor + Estudante.<ul id="171737b7-e9e2-49fc-b89e-c31fdc6d0d01" class="bulleted-list"><li style="list-style-type:circle">Acesso: <a href="https://www.ilovepdf.com/pt/juntar_pdf">Mesclar PDFs</a></li></ul></li></ul><ul id="6c40b928-5235-429e-a7d8-b39024416129" class="bulleted-list"><li style="list-style-type:disc"><strong>EduGenerator</strong>: conversão do DOCX em pacote TAR.GZ.<ul id="76d5d25e-bac1-41e4-8b11-a0659d07132d" class="bulleted-list"><li style="list-style-type:circle">Acesso: <a href="https://edugenerator.pdinfinita.com/login">EduGenerator</a></li></ul></li></ul><ul id="85c48fd7-5081-47d5-9585-76d0d61c0574" class="bulleted-list"><li style="list-style-type:disc"><strong>AVA (Studio IPGC)</strong>: criação e publicação do curso.<ul id="6c89ef95-6e74-4760-bec6-2865793f7ebc" class="bulleted-list"><li style="list-style-type:circle">Acesso: <a href="https://studio.ipgc.org.br/">Studio IPGC</a></li></ul></li></ul><figure class="callout" style="white-space:pre-wrap;display:flex" id="851a2582-2308-429d-a80d-023e54360d47"><div style="width:100%"><p id="a485a71b-694e-49f7-a099-315061952e8f" class=""><strong>Acesso Rápido</strong></p><p id="0008db56-d5be-44e4-9fd9-d6969c6363fd" class="">Todos os acessos são fornecidos pelo gestor responsável.</p></div></figure><hr id="1910689d-b26d-4109-a301-b61e98453361"/><p id="296588e9-62ef-80c7-83c1-d3abdaefba84" class="">
+</p><h2 id="76500d0d-55bc-4732-8327-28531b0a6092" class="">Etapas do processo</h2><h3 id="180b299a-f015-4a74-be91-5fd5478678aa" class="">1. Drive da .EDU: localizar material e estrutura do curso</h3><ol type="1" id="aca2fa7d-8f1d-4f86-a009-ca468fd423c8" class="numbered-list" start="1"><li>No <strong>Drive da .EDU</strong>, acesse a pasta do curso designado.</li></ol><ol type="1" id="8f55d9ac-e94a-4daa-a53b-afdf3c8f50fa" class="numbered-list" start="2"><li>Entre na pasta da entrega atual (ex.: “3ª Entrega”).</li></ol><ol type="1" id="7546df88-05a7-41c7-9294-d1c7de57c670" class="numbered-list" start="3"><li>Localize a pasta do pacote do curso.</li></ol><ol type="1" id="249e2848-7f63-437e-8545-c1d90d899a2f" class="numbered-list" start="4"><li>Vá para a pasta de <strong>Diagramação</strong>.</li></ol><ol type="1" id="b1d884d8-c506-4100-bc8c-a0b6a252ecde" class="numbered-list" start="5"><li>Abra o DOCX do Estudante e o do Professor. Ambos devem ser revisados e entregues.</li></ol><ol type="1" id="1071ac81-938f-43ac-b10f-dad50fe345a5" class="numbered-list" start="6"><li>Eixos previstos no contrato:<ul id="bc9f631b-c934-4aeb-8c14-5202bc9b13ac" class="bulleted-list"><li style="list-style-type:disc">Gestão &amp; Negócios</li></ul><ul id="873c8d7e-6ab5-4a98-83eb-137bcd7dd390" class="bulleted-list"><li style="list-style-type:disc">Turismo, Hospitalidade &amp; Lazer</li></ul><ul id="94b2de93-aa1b-4ea5-a040-06d60448210b" class="bulleted-list"><li style="list-style-type:disc">Informação &amp; Comunicação</li></ul><ul id="1e0cac9c-9521-4817-96fe-480a254dad4a" class="bulleted-list"><li style="list-style-type:disc">Mundo do Trabalho</li></ul></li></ol><figure class="callout" style="white-space:pre-wrap;display:flex" id="b09bd1f3-5be4-4c53-9017-b24e9aa8c1f3"><div style="width:100%"><p id="6fe27cb7-2b42-4723-8873-97218ccb4510" class=""><strong>Dica</strong></p><p id="0414c54c-b987-4fcd-9d89-8d3c7fc21c44" class="">Trabalhe sempre com a versão do DOCX no Drive, mantendo as últimas alterações salvas enquanto valida o PDF no <strong>PDF Generator</strong>.</p></div></figure><hr id="1a1e3794-de3c-43dd-8569-6d29de763aa7"/><h3 id="4dff2ec8-212c-4d55-b4bd-c19ada291411" class="">2. Revisão de tageamento e geração de PDF no PDF Generator</h3><h3 id="37371d96-36b9-4c6a-9b5a-d2cda127dc0d" class="">Visão geral da etapa</h3><p id="89fbbd12-f634-43ef-b992-22bd9b501cc5" class="">Esta fase garante que o DOCX esteja corretamente marcado para virar um PDF profissional. Você vai inserir e validar tags no Word e conferir o resultado em tempo real no <strong>PDF Generator</strong>.</p><p id="7c695d45-7663-4ed7-b21b-780118bd22c8" class="">
+</p><figure class="callout" style="white-space:pre-wrap;display:flex" id="93ef2cdb-545f-4e45-9eab-d96e358cddf5"><div style="width:100%"><p id="46333075-ee97-4213-9d7e-0895ace80746" class="">Esta seção foi inspirada no material que você enviou e foi reescrita em formato operacional, com exemplos ampliados para facilitar o treinamento da equipe.</p></div></figure><hr id="79f2605a-82f9-491a-96e0-a9dee279024a"/><h3 id="35a55f12-3785-486f-824f-e1c7b68e7455" class="">O que são tags e como usar</h3><ul id="126e9859-57bc-41cc-a570-a2f6fde4f37b" class="bulleted-list"><li style="list-style-type:disc">Tags são marcadores entre cerquilhas (#) que definem estrutura e estilo no PDF.</li></ul><ul id="174313b5-57a6-4143-9f39-91b988786aae" class="bulleted-list"><li style="list-style-type:disc">Devem aparecer sozinhas em uma linha, sem outros textos.</li></ul><ul id="48a46f06-b8bf-426b-af0d-38a5b264a234" class="bulleted-list"><li style="list-style-type:disc">Dois tipos principais:<ul id="62b7e3c7-3e72-4c9e-bee4-d1082fa5f007" class="bulleted-list"><li style="list-style-type:circle">Blocos: abrem e fecham uma seção especial. Ex.: <mark class="highlight-default">#SAIBAMAIS# … #SAIBAMAIS#</mark></li></ul><ul id="a88fcb69-ceb5-4e02-b0d6-df127a399a19" class="bulleted-list"><li style="list-style-type:circle">Linha única: configuram o próximo parágrafo/elemento. Ex.: <mark class="highlight-default">#TITULO2#</mark></li></ul></li></ul><figure class="callout" style="white-space:pre-wrap;display:flex" id="c4f01f42-9750-4fc3-b002-7ef500ff9d38"><div style="width:100%"><p id="4329c68e-434b-42af-8c41-e368a42218af" class="">Regras de ouro</p><ul id="12f6295f-d72e-4416-83c1-8629b9b09988" class="bulleted-list"><li style="list-style-type:disc">Uma linha por tag</li></ul><ul id="eeb1e2e9-70fa-4616-b35a-10e34d196b16" class="bulleted-list"><li style="list-style-type:disc">Abrir e fechar com a mesma grafia</li></ul><ul id="7dd6a824-f120-40a7-8df0-d6e5b1b08f5c" class="bulleted-list"><li style="list-style-type:disc">Evitar formatação manual no Word (cores, fontes)</li></ul></div></figure><hr id="e78a63a1-7803-4037-8f71-691d7e337352"/><h3 id="b89f45e6-298c-4183-ad64-10f218470518" class="">Exemplos práticos</h3><figure class="callout" style="white-space:pre-wrap;display:flex" id="0b22d888-5678-4f71-9f39-78a331c71272"><div style="width:100%"><p id="42e40c3a-3615-4182-a3f8-4a4b744090ad" class="">Exemplo 1 — Capítulo com objetivos, destaque e quebra de página</p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f280803d-ba8f-468b-99e9-86583bcf7165" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#Capítulo#
+Capítulo 1 – Introdução ao Projeto
+#TITULO2#
+Objetivos
+Texto introdutório com os objetivos gerais do projeto.
+#SAIBAMAIS#
+Informação complementar que ajuda a contextualizar a leitura.
+#SAIBAMAIS#
+#QUEBRADEPAGINA#</code></pre><p id="296588e9-62ef-8066-98e5-e3d0c03593ac" class="">
+</p><figure class="callout" style="white-space:pre-wrap;display:flex" id="462c7bff-58c5-4ffb-b68f-d67962d42a6a"><div style="width:100%"><p id="21ba4abd-c25b-4f99-98cd-310a8c61c16a" class="">Exemplo 2 — Metodologia com quadro de dados e legenda de imagem</p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="296588e9-62ef-8036-84d9-c083f66c0b28" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#Capítulo#
+Capítulo 1 – Introdução ao Projeto
+#TITULO2#
+Objetivos
+Texto introdutório com os objetivos gerais do projeto.
+#SAIBAMAIS#
+Informação complementar que ajuda a contextualizar a leitura.
+#SAIBAMAIS#
+#QUEBRADEPAGINA#</code></pre><figure class="callout" style="white-space:pre-wrap;display:flex" id="403ee94d-5801-4f9f-b5dc-dd9d58f0d3f8"><div style="width:100%"><p id="6a1a8bb8-5b6a-41ce-9d74-a4afdf6e279e" class="">Exemplo 3 — Citação longa e tooltip com título</p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8e5abcd2-8a7f-4661-902a-0ecda084bcf5" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#CITACAO#
+&quot;A educação é a base para transformação social.&quot; – Autoria
+#CITACAO#
+#TOOLTIP#
+#TOOLTIPTITULO#
+Dica Rápida
+Esta é uma instrução curta que apoia quem estuda.
+#TOOLTIP#</code></pre><figure class="callout" style="white-space:pre-wrap;display:flex" id="2f3a57dc-5fda-4ff4-84b1-226e5d72afbf"><div style="width:100%"><p id="21f6113f-bdb5-4305-b3c5-d8b50ab29261" class="">Exemplo 4 — Alertas curiosidades</p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9331b44e-29a5-4cad-82cd-6dde6fe1e8c0" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#FIQUEATENTO#
+Revisar prazos de envio do documento.
+#FIQUEATENTO#
+#CURIOSIDADE#
+O Brasil tem mais de 8.500 km de costa.
+#CURIOSIDADE#</code></pre><figure class="callout" style="white-space:pre-wrap;display:flex" id="f2648b6a-dd2c-4da4-b64b-19033651996f"><div style="width:100%"><p id="064d4405-f2e3-42b0-8dd3-05495b56b08e" class="">Exemplo 5 — Estrutura mínima de um capítulo didático com tabela</p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c0de3012-86a2-4ccd-b33b-41bdc9b59171" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#Capítulo#
+Capítulo 2 – Conceitos Básicos
+#TITULO2#
+Tópicos Principais
+#TITULO3#
+Definições
+Texto de apoio ao conceito.
+#TITULOTABELA#
+Tabela de Resultados
+[Tabela inserida no Word]
+#QUEBRADEPAGINA#</code></pre><figure class="callout" style="white-space:pre-wrap;display:flex" id="bbe152d2-1a91-4228-8165-78de201f8bdc"><div style="width:100%"><p id="253c0085-c668-4aa3-b3d9-ca31a1c30ace" class="">Exemplo 6 — Seção regional e informações locais (Maranhão)</p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9b83e258-9e99-441e-93dc-bdf4b96f98b3" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">#AQUINOMARANHAO#
+Breve nota contextual sobre aspectos regionais do Maranhão.
+#AQUINOMARANHAO#</code></pre><hr id="d3386aa4-e07c-48c0-890b-0dc6279f6700"/><h3 id="fdad0cff-87c1-4bd3-b585-fb186b153838" class="">Validação no PDF Generator (passo a passo)</h3><ol type="1" id="4ca9758c-3b62-4d18-8b69-44ddcc8f1134" class="numbered-list" start="1"><li>Acesse o <strong>PDF Generator</strong>: <a href="http://145.223.92.122:5175/login">Link 1</a> | <a href="https://webdoc2pdf.pdinfinita.com/login">Link 2</a></li></ol><ol type="1" id="b783a0b2-ae2b-48bd-b18d-a6a867cb05a1" class="numbered-list" start="2"><li>Login com credenciais fornecidas pelo gestor.</li></ol><ol type="1" id="ddfde669-6354-49c7-96dd-f4683f0d3eb3" class="numbered-list" start="3"><li>Template:<ul id="ae03c7b3-fc48-4091-ac0c-e35aed35edd0" class="bulleted-list"><li style="list-style-type:disc">Estudante: template único (não alterar)</li></ul><ul id="b7dcc7f5-196d-459a-95c6-9f2852a24705" class="bulleted-list"><li style="list-style-type:disc">Professor: selecione o eixo em “Selecionar Template”<ul id="dcbf1cf1-752d-4010-9b6c-9675f78bc04f" class="bulleted-list"><li style="list-style-type:circle">Gestão = Gestão &amp; Negócios</li></ul><ul id="af5ae601-68cd-41b7-88da-623d778ddaa3" class="bulleted-list"><li style="list-style-type:circle">Informação = Informação &amp; Comunicação</li></ul><ul id="d5321cdc-ef64-4145-89ba-7ef8cabc07fc" class="bulleted-list"><li style="list-style-type:circle">Mundo = Mundo do Trabalho</li></ul><ul id="7350fb30-444d-41f2-925f-84f62cb34cd9" class="bulleted-list"><li style="list-style-type:circle">Turismo = Turismo, Hospitalidade &amp; Lazer</li></ul></li></ul></li></ol><ol type="1" id="5cdd2352-1f60-4bb0-a1db-855e20bea39c" class="numbered-list" start="4"><li>Envie o DOCX revisado.</li></ol><ol type="1" id="eb1aa41f-6b72-4aa3-879c-086b13672d45" class="numbered-list" start="5"><li>Em “Personalizar Template”:<ul id="a77eb6bf-12ce-443e-8f9b-945c4df3f3a8" class="bulleted-list"><li style="list-style-type:disc">Compare o número de capítulos detectados com o DOCX. Divergiu? Pare, corrija a tag quebrada e reenvie.</li></ul><ul id="02dff9a3-67c1-4339-b162-1f29f6571f89" class="bulleted-list"><li style="list-style-type:disc">“URLs para QR Codes”: desmarque links da seção de Referências. Referências ficam como links, não QR Codes.</li></ul></li></ol><ol type="1" id="c9412728-8182-4e04-833a-909d675c9a40" class="numbered-list" start="6"><li>Clique em “Aplicar Estilos”.</li></ol><ol type="1" id="4b8100a0-f040-46ff-b5e8-dc39aad02b10" class="numbered-list" start="7"><li>Pré-visualize, ajuste no DOCX do <strong>Drive da .EDU</strong> e reenvie até ficar consistente.</li></ol><ol type="1" id="4466aa04-dda1-46d4-822e-997b1269a62a" class="numbered-list" start="8"><li>Gere e baixe o PDF final.</li></ol><figure class="callout" style="white-space:pre-wrap;display:flex" id="f22b9e52-9732-4696-9eec-4c7af9239a9b"><div style="width:100%"><p id="6c57fcdd-652a-4763-84ac-d5e32153e896" class="">Checklist antes de seguir</p><ul id="8412a88a-a73b-4b54-92e1-bbffd230957e" class="bulleted-list"><li style="list-style-type:disc">Capítulos e subtítulos com contagem e ordem corretas</li></ul><ul id="c815b6b5-3ad0-4196-8e92-362a01173a76" class="bulleted-list"><li style="list-style-type:disc">Caixas de seção (Saiba Mais, Quadro, Destaque, Tooltip, etc.) renderizando como esperado</li></ul><ul id="5f3c3c99-749b-40c4-98d7-f675b35627ee" class="bulleted-list"><li style="list-style-type:disc">Referências sem QR Codes</li></ul><ul id="c471881f-c64f-4e52-9fb9-f5651090aaf9" class="bulleted-list"><li style="list-style-type:disc">Títulos de tabela, legendas e quebras de página corretos</li></ul></div></figure><hr id="cc7bc479-a18d-46a5-baa9-26babd73c3d9"/><h3 id="e55b94c9-b7d4-413f-a068-b986d4b06618" class="">Anti‑padrões que geram retrabalho</h3><ul id="37a1e984-556a-480f-b0f0-a220b6b4547d" class="bulleted-list"><li style="list-style-type:disc">Tag não exclusiva na linha ou com espaços/acentos fora do padrão.</li></ul><ul id="a75fd429-e715-449f-9de2-05361ced08ad" class="bulleted-list"><li style="list-style-type:disc">Abrir #DESTAQUE1# e fechar #DESTAQUE 1# (com espaço) ou com outro número.</li></ul><ul id="85cb8bab-ba39-4dde-bf62-5242fab7dc35" class="bulleted-list"><li style="list-style-type:disc">Contagem de capítulos divergente entre DOCX e captura do sistema.</li></ul><ul id="abfce13a-5f13-4873-a87c-b1142ffa15ab" class="bulleted-list"><li style="list-style-type:disc">Links de Referências marcados para QR Code.</li></ul><hr id="f7f0d5a6-b736-4941-9df2-234e62ca409d"/><h3 id="161d43fb-5431-4941-ae5d-6d81d21131ed" class="">Boas práticas</h3><ul id="c4f38caa-92fb-43a3-82a2-e18ad4e5ddfd" class="bulleted-list"><li style="list-style-type:disc">Evite formatação manual no Word; a aparência final vem do mecanismo de PDF.</li></ul><ul id="5a0400af-06e3-4d0a-9b54-f1033dae7199" class="bulleted-list"><li style="list-style-type:disc">Mantenha cada tag em sua própria linha, sem conteúdo adicional.</li></ul><ul id="d3894735-9fcc-4bd2-8e7b-92d82afe2e54" class="bulleted-list"><li style="list-style-type:disc">Trabalhe sempre no DOCX do <strong>Drive da .EDU</strong> para preservar histórico e última versão.</li></ul><ul id="1e2efae4-d1d7-4d66-92a1-93622ff4db67" class="bulleted-list"><li style="list-style-type:disc">Faça ciclos curtos: ajuste → “Aplicar Estilos” → pré-visualização.</li></ul><hr id="aee7b142-993c-46b8-8781-2aaa88fef17b"/><h3 id="5a5f6637-3b33-49c4-8729-f2cc901a813a" class="">Guia rápido de tags</h3><table id="07f3592d-efbb-435c-94c0-28857a0cab7a" class="simple-table"><thead class="simple-table-header"><tr id="5a4f449a-5768-4016-8b55-f6bd3a5566f7"><th id="rp`|" class="simple-table-header-color simple-table-header">Tag</th><th id="|ZU}" class="simple-table-header-color simple-table-header">Função</th><th id="DIx[" class="simple-table-header-color simple-table-header">Uso típico</th></tr></thead><tbody><tr id="875b8ef3-880b-4689-b1c1-c109d790b553"><td id="rp`|" class="">#Capítulo# / #CAPITULO#</td><td id="|ZU}" class="">Inicia um capítulo (Título N1)</td><td id="DIx[" class="">Primeira linha do capítulo</td></tr><tr id="5426f46a-f3e2-4371-8308-66cf425c9254"><td id="rp`|" class="">#TITULO2# / #TITULO3#</td><td id="|ZU}" class="">Cria subtítulos N2/N3</td><td id="DIx[" class="">Estruturar seções</td></tr><tr id="94ae154b-e08d-4ae2-9577-e632cee81644"><td id="rp`|" class="">#SAIBAMAIS# , #DESTAQUE1#…#6# ,<br/>#QUADRO1#…#6#</td><td id="|ZU}" class="">Caixas de ênfase</td><td id="DIx[" class="">Boas práticas, dados, pontos‑chave</td></tr><tr id="dede37a7-5056-4357-a50b-d0d7e4dc96b9"><td id="rp`|" class="">#CITACAO#</td><td id="|ZU}" class="">Citação com recuo</td><td id="DIx[" class="">Depoimentos, frases</td></tr><tr id="9e704b1f-0af2-42d9-867c-b5dc285e4bcb"><td id="rp`|" class="">#TOOLTIP# + #TOOLTIPTITULO#</td><td id="|ZU}" class="">Nota curta com título</td><td id="DIx[" class="">Dicas rápidas</td></tr><tr id="54ed3862-b50a-429a-a91e-abe5e7e030b5"><td id="rp`|" class="">#TITULOTABELA#</td><td id="|ZU}" class="">Título de tabela</td><td id="DIx[" class="">Antes da tabela</td></tr><tr id="3aae6d0e-cb0b-48e5-a1c3-d627f78e722f"><td id="rp`|" class="">#FONTE#</td><td id="|ZU}" class="">Legenda de imagem</td><td id="DIx[" class="">Abaixo da imagem</td></tr><tr id="54bad627-3574-4452-a5ca-76269f1285f9"><td id="rp`|" class="">#QUEBRADEPAGINA#</td><td id="|ZU}" class="">Força nova página</td><td id="DIx[" class="">Fechamento de seção</td></tr></tbody></table><hr id="17e6e219-af62-4b8b-9395-445640fb56f5"/><h3 id="f494c44f-fe1b-4d12-8104-307731de4eed" class="">3. Inclusão de capas no PDF</h3><p id="a937afaf-25d6-4d63-821d-3d2d42613163" class="">Tipos de capas:</p><ul id="0645783b-10f7-4a03-897e-d9a22fddac1c" class="bulleted-list"><li style="list-style-type:disc">Capa do curso/componente</li></ul><ul id="ddd1f848-66f0-4856-8486-c489d1d9df5c" class="bulleted-list"><li style="list-style-type:disc">Capas por capítulo (esquerda e direita) por eixo</li></ul><ol type="1" id="060ae6ff-b272-4248-a08f-172ac08b385e" class="numbered-list" start="1"><li>Capa do curso: em “Personalizar Template”, use “Imagem de Capa”.<p id="3c57e8dd-6b76-4fe8-8dfb-69775009fa3b" class="">Sempre valide na pré-visualização antes de baixar o PDF final.</p></li></ol><ol type="1" id="02635654-79ad-4ff7-bdbb-ddc96fc4bfeb" class="numbered-list" start="2"><li>Capas por capítulo:<ul id="01ce8008-515c-4bbb-8815-350ebd47af39" class="bulleted-list"><li style="list-style-type:disc">Acesse o repositório de capas: <a href="https://drive.google.com/drive/folders/15DUWysbtmOyplrau8rfwwrL4_jCR1hon?usp=sharing">Capas por eixo</a></li></ul><ul id="7446ba4b-8f80-4fd9-8ccf-35dbea18483a" class="bulleted-list"><li style="list-style-type:disc">No “Personalizar Template”, abra a subseção “Capítulos”.</li></ul><ul id="1c4ee269-aa8b-4e97-b174-344612e74e96" class="bulleted-list"><li style="list-style-type:disc">Para cada capítulo, suba:<ul id="5e84820f-7ecc-4607-9391-904dfa4ae132" class="bulleted-list"><li style="list-style-type:circle">Esquerda: “CAPÍTULO_X”</li></ul><ul id="85c3cc68-47fd-448c-9cad-42608615dcb2" class="bulleted-list"><li style="list-style-type:circle">Direita: “CAPÍTULO_XD”</li></ul></li></ul></li></ol><ol type="1" id="89c49794-0923-49a6-aff4-a025b495b439" class="numbered-list" start="3"><li>Para o Livro do Professor:<ul id="83102830-4d24-412a-b125-74e1d831933a" class="bulleted-list"><li style="list-style-type:disc">Una o PDF do Professor (primeiro) e do Estudante (depois) em um único arquivo.<ul id="7791d596-a2fc-4eb5-88cf-e3a9adf1ade6" class="bulleted-list"><li style="list-style-type:circle">Use: <a href="https://www.ilovepdf.com/pt/juntar_pdf">Mesclar PDFs</a></li></ul><ul id="12bbb2b5-1dfe-4ecd-ba93-160ba096e89e" class="bulleted-list"><li style="list-style-type:circle">Garanta a ordem correta: Professor (capa cinza) primeiro.</li></ul></li></ul></li></ol><figure class="callout" style="white-space:pre-wrap;display:flex" id="4ff7d229-baf2-44a0-a7da-25d159605d99"><div style="width:100%"><p id="524a106c-d7e5-4027-b5f1-8e4a43b88a79" class=""><strong>Dica</strong></p><p id="c2d4bf8b-98ad-4e63-99d6-483f582c879b" class="">Valide cada capítulo com a pré-visualização antes de gerar o PDF final. Evita retrabalho.</p></div></figure><hr id="ca8f5fe3-e205-4e77-80a2-1fff0485a3b6"/><h3 id="68633db8-3799-4518-9012-7d3fd21bdcc6" class="">4. Geração do pacote TAR.GZ no EduGenerator</h3><ol type="1" id="b9a74fd4-1578-411b-ad64-79e69305fb4f" class="numbered-list" start="1"><li>Acesse: <a href="https://edugenerator.pdinfinita.com/login">EduGenerator</a> com credenciais do gestor.</li></ol><ol type="1" id="24433359-69b6-4c75-9fed-6284ac25509b" class="numbered-list" start="2"><li>Faça upload do DOCX 100% revisado.</li></ol><ol type="1" id="f9dc4cd2-6778-4fb7-a8d4-c1b5ad0e7fb7" class="numbered-list" start="3"><li>Aguarde a preparação do tageamento para ZIP.<p id="1fb05f21-a155-4617-93a6-39d3d21eb9be" class="">Clique em “Continuar para Conversão”.</p></li></ol><ol type="1" id="c7053a94-36b6-4705-937e-cb3094c342b6" class="numbered-list" start="4"><li>Baixe o ZIP gerado.</li></ol><ol type="1" id="8d00c2fa-9991-4c2a-8f87-904bf05f8cdb" class="numbered-list" start="5"><li>Confirme o preparo do fileserver:<ul id="3a94c757-be15-415c-b83d-cba77c161145" class="bulleted-list"><li style="list-style-type:disc">Padrão de pasta em PTEC:<ul id="28033701-05ac-4515-9705-498969983999" class="bulleted-list"><li style="list-style-type:circle">Estudante: NomeDoComponente (sem acentos)</li></ul><ul id="61a09832-3a35-4bc0-a9a5-6b987951a27a" class="bulleted-list"><li style="list-style-type:circle">Professor: NomeDoComponenteProfessor</li></ul><ul id="e11a87d0-18df-402a-94df-1ada1814ab38" class="bulleted-list"><li style="list-style-type:circle">Ex.: AdministracaoOrcamentaria e AdministracaoOrcamentariaProfessor</li></ul></li></ul></li></ol><ol type="1" id="ee5415a7-b733-494a-90e4-eb9c2cff7536" class="numbered-list" start="6"><li>Extraia o ZIP e mova todos os arquivos para a pasta do fileserver correspondente.</li></ol><ol type="1" id="941b7d36-cb78-4102-92b8-08780c79b1fa" class="numbered-list" start="7"><li>No EduGenerator, marque:<ul id="2a01c5bb-2e63-4183-8f6f-d8253427dcb9" class="bulleted-list"><li style="list-style-type:disc">“Baixei o arquivo ZIP”</li></ul><ul id="4b1f1214-db07-40fe-a4ce-202dc2fe9504" class="bulleted-list"><li style="list-style-type:disc">“Postei o arquivo no drive”</li></ul></li></ol><ol type="1" id="530b416f-554a-4e92-9ea1-135987d99a14" class="numbered-list" start="8"><li>Geração do TAR.GZ:<ul id="94fdb196-7735-4bb2-a297-5cd684c08e81" class="bulleted-list"><li style="list-style-type:disc">“Nome do curso” igual ao nome da pasta criada no fileserver.</li></ul><ul id="b63427a0-1e09-4c38-ac09-225bcf6694bd" class="bulleted-list"><li style="list-style-type:disc">“Número de Capítulos” = último índice das pastas capituloX no fileserver.</li></ul><ul id="9c8eff29-0f10-44e6-a025-3dea813d2cf3" class="bulleted-list"><li style="list-style-type:disc">“Organização”: em branco.</li></ul></li></ol><p id="296588e9-62ef-800b-8e13-d66d2261a025" class="">
+</p><ol type="1" id="ebeb683c-8b8e-4be7-8160-923d0a454e09" class="numbered-list" start="1"><li>Clique em “Gerar TAR.GZ” e baixe ao final.</li></ol><figure class="callout" style="white-space:pre-wrap;display:flex" id="a54eae50-7d74-49bf-bbc8-fc6e58f4059f"><div style="width:100%"><p id="b304193e-b4d2-4c30-af7e-2f464daea5e0" class=""><strong>Atenção</strong></p><p id="3b35b016-88f2-488c-adf3-37faaa55e85a" class="">Mantenha exatamente o mesmo nome de pasta entre fileserver e “Nome do curso” no <strong>EduGenerator</strong>.</p></div></figure><hr id="bd423097-3819-41a7-b9f6-da02ba6eb0ff"/><h3 id="d1526dba-2e27-4e5d-b591-a28f86c02802" class="">5. Criação e importação no AVA (Studio IPGC)</h3><ol type="1" id="acea3802-1b22-411b-8f38-b9b2f6b85a81" class="numbered-list" start="1"><li>Acesse: <a href="https://studio.ipgc.org.br/">Studio IPGC</a> com conta de admin.</li></ol><ol type="1" id="0884691a-36c9-4654-a885-4d22addfc12c" class="numbered-list" start="2"><li>Clique em “Novo curso”.</li></ol><ol type="1" id="e48878c6-d5e6-431d-9055-e2a7ac9f27bd" class="numbered-list" start="3"><li>Preencha:<ul id="ac4fc881-731f-4696-b768-359f5ccf8cb7" class="bulleted-list"><li style="list-style-type:disc">Nome do Curso: igual ao do fileserver</li></ul><ul id="eec5283c-6901-43ff-b04a-80e70957dabc" class="bulleted-list"><li style="list-style-type:disc">Organização: IPGC</li></ul><ul id="7e8e4847-37b8-4caa-aef7-05105252b1d5" class="bulleted-list"><li style="list-style-type:disc">Número do curso: sigla (ex.: AdministracaoOrcamentaria → AO)</li></ul><ul id="c2d1575e-c970-4516-baff-84c3f7fe752f" class="bulleted-list"><li style="list-style-type:disc">Versão do Curso: ano + &quot;_&quot; + sigla (ex.: 2025_AO)</li></ul></li></ol><ol type="1" id="ab7a5399-05a1-445e-ad3f-a26f9b411bb8" class="numbered-list" start="4"><li>Criado o curso, vá em “Ferramentas” → “Importar”.</li></ol><ol type="1" id="676e3670-9fad-4454-a993-c1da9c207569" class="numbered-list" start="5"><li>Selecione o TAR.GZ gerado e importe.</li></ol><ol type="1" id="7fb81ced-9497-45c2-bb9e-9b8993eec693" class="numbered-list" start="6"><li>Ao final, clique em “Ver Ementa Atualizada”.</li></ol><ol type="1" id="5682c2f7-9939-4126-b8f5-b8138315dda2" class="numbered-list" start="7"><li>Validação:<ul id="a3ef4e84-90a1-4ac0-87ef-d9f93e9a01ab" class="bulleted-list"><li style="list-style-type:disc">Compare o AVA com a pasta do fileserver.</li></ul><ul id="3fb0881e-46ed-4ec4-b150-8491f7f0d34e" class="bulleted-list"><li style="list-style-type:disc">Apague do AVA tudo que não existir no fileserver.</li></ul><ul id="6dab0bd6-8c0b-49c2-9983-e7d033bf1712" class="bulleted-list"><li style="list-style-type:disc">Em todos os capítulos, remover “INTRODUCAO_CAPITULO” e “SINTETIZANDO”.</li></ul></li></ol><ol type="1" id="ed4efcf9-b18e-4e73-9ebb-8906821622d4" class="numbered-list" start="8"><li>Publique cada capítulo:<ul id="fa35a912-c9ab-4fdd-8758-ead9e6aa3959" class="bulleted-list"><li style="list-style-type:disc">Ícone de seta para cima → “Publicar” → confirme.</li></ul></li></ol><figure class="callout" style="white-space:pre-wrap;display:flex" id="a78d07ea-d67c-47fe-8f7e-abd2e0ab04e6"><div style="width:100%"><p id="4e0875b9-0650-47ab-90a1-c0b432c455a7" class=""><strong>Importante</strong></p><p id="27d92d11-a17c-4269-bdd8-6086ce950847" class="">Use o fileserver como “fonte de verdade” para validar a estrutura final do curso no <strong>AVA</strong>.</p></div></figure><h3 id="39f699f5-6223-4b1b-bfc9-94fd68916eed" class="">Específico para o Livro do Professor</h3><ul id="5124b703-789a-42e9-9240-f5d442ec00a4" class="bulleted-list"><li style="list-style-type:disc">O curso do Professor deve conter o conteúdo do Professor e do Estudante.</li></ul><p id="79e30738-bdbd-4161-90f8-78a2ffa9f894" class="">Fluxo sugerido:</p><ol type="1" id="320ed39f-94a0-467c-bff6-6c5dad2714b6" class="numbered-list" start="1"><li>Valide e publique integralmente o curso do Professor.</li></ol><ol type="1" id="8910df73-2565-4615-abd6-fdf3e53d0025" class="numbered-list" start="2"><li>Em outra aba, abra o curso do Estudante já publicado.</li></ol><ol type="1" id="f136db93-8f53-4775-82d2-cf621636ab34" class="numbered-list" start="3"><li>No curso do Professor:<ul id="b89fcbdc-4b31-4262-a078-2df68ef22c3e" class="bulleted-list"><li style="list-style-type:disc">Duplique cada capítulo.</li></ul><ul id="e325d640-7005-4f41-8e3e-91339493e458" class="bulleted-list"><li style="list-style-type:disc">Renomeie:<ul id="cc01edb9-8688-4eed-9669-380d331fdf9a" class="bulleted-list"><li style="list-style-type:circle">“Capítulo X - Professor”</li></ul><ul id="43577eeb-5fcc-4547-9f73-6f8ab117c2ba" class="bulleted-list"><li style="list-style-type:circle">“Capítulo X - Estudante”</li></ul></li></ul><ul id="9249ad68-40fb-4811-952f-a86ffad3c6b2" class="bulleted-list"><li style="list-style-type:disc">No “Capítulo X - Estudante”, copie do curso do Estudante:<ul id="f3407c37-3e3b-435f-9db7-4ce0bd7520bd" class="bulleted-list"><li style="list-style-type:circle">No curso do Estudante: três pontos do bloco → “Copy to Clipboard”</li></ul><ul id="c9477aa5-95fd-4446-af22-85fc421de491" class="bulleted-list"><li style="list-style-type:circle">No curso do Professor: limpe o conteúdo do capítulo e clique “Paste Unidade”</li></ul></li></ul></li></ol><ol type="1" id="6bf8687d-5a53-4ce8-87ef-16aa45e2f04b" class="numbered-list" start="4"><li>Publique novamente após finalização.</li></ol><hr id="c57a3cb6-c64c-42bc-b0c9-f3275be94e71"/><h3 id="e6666e6b-beb4-4e31-b949-b78e39a610fb" class="">6. Capa, PDF e nome de exibição no AVA</h3><ol type="1" id="132c6863-bb2b-4926-86d6-66b3e180ccab" class="numbered-list" start="1"><li>Do curso, acesse:<p id="c3eee5ac-3edb-4133-b85c-4673470d1486" class="">Conteúdo → Páginas &amp; Recursos → Livros didáticos</p></li></ol><ol type="1" id="0c506695-6d7b-433b-81ba-352de85323d8" class="numbered-list" start="2"><li>Em “livro do estudante OFF”, clique em “Edit”:<ul id="8bde03b8-ad43-4362-9b91-0822bc0a629a" class="bulleted-list"><li style="list-style-type:disc">“Nome do Livro-texto”: “PDF dos livros”</li></ul><ul id="3bcb9e1c-bd43-4e96-a900-79b1edc4a020" class="bulleted-list"><li style="list-style-type:disc">“Ativo do Capítulo”: selecione o PDF final</li></ul><ul id="b242e8ae-8780-46fc-8509-2cc3f0ab15a3" class="bulleted-list"><li style="list-style-type:disc">Salve</li></ul></li></ol><ol type="1" id="9159d94a-35e9-4dc4-a7d8-f84f7b9e7b28" class="numbered-list" start="3"><li>Ajuste o nome de exibição:<ul id="b4cde41a-da57-4121-aea0-63cb7acaae3e" class="bulleted-list"><li style="list-style-type:disc">Configurações → Configurações Avançadas</li></ul><ul id="7c197420-5fe1-49b6-ac7a-13457a8c0956" class="bulleted-list"><li style="list-style-type:disc">Campo “Nome de Exibição do Curso”</li></ul><ul id="f807a7a1-a802-45e0-b72f-e526b165cb3d" class="bulleted-list"><li style="list-style-type:disc">Formate com espaços e acentos corretos<ul id="2e4c0116-a9ba-4af9-8e82-419e11f9a5dd" class="bulleted-list"><li style="list-style-type:circle">Ex.: “CalculosDeFolhaDePagamento” → “Cálculos de Folha de Pagamento”</li></ul></li></ul></li></ol><hr id="b3abfa6e-4865-4c59-9359-d432b7d52251"/><h3 id="94e42a6d-9d5e-449c-8d23-995b2f3fb76d" class="">7. Entrega final no Drive do IPGC</h3><ol type="1" id="6bca730b-0d00-49ae-b4ac-a91917389999" class="numbered-list" start="1"><li>Suba os PDFs finais do Estudante e do Professor nas pastas corretas por eixo e curso.</li></ol><ol type="1" id="9ed01064-3408-4eba-b32e-00026c5ba162" class="numbered-list" start="2"><li>O acesso ao drive final é restrito ao Guilherme da .EDU.<p id="2c1b70f3-a391-4b24-b9c2-c9396bbaeaaf" class="">Solicite ao gestor o acesso pela conta do Guilherme para realizar o upload.</p></li></ol><figure class="callout" style="white-space:pre-wrap;display:flex" id="45d554e7-83f8-43ac-b2e3-f6a4b18cae01"><div style="width:100%"><p id="3191aae6-0315-44cf-a676-933c015219a3" class=""><strong>Atenção</strong></p><p id="0c1fb23e-2f7a-4525-af41-79b7d39aac4c" class="">Confirme duas vezes curso e eixo antes de subir os PDFs. Erros de destino atrasam a publicação.</p></div></figure><hr id="118b5a83-e228-46d6-80aa-5acd7f663702"/><h2 id="b51179ad-9992-43ab-8451-d487417c5e96" class="">Boas práticas</h2><ul id="7bd01f09-fedf-4232-bb84-a0288925ed06" class="bulleted-list"><li style="list-style-type:disc">Trabalhe com pré-visualização ao lado no <strong>PDF Generator</strong> para agilizar correções.</li></ul><ul id="bf20baae-d1e5-42ae-8c36-71fa5d0fb52e" class="bulleted-list"><li style="list-style-type:disc">Mantenha convenções: nomes CamelCase sem acentos no fileserver e nomes legíveis e acentuados no AVA.</li></ul><ul id="6ed81c55-62fa-4361-8ac5-fe530429e650" class="bulleted-list"><li style="list-style-type:disc">Trate “Referências” como texto com links, nunca QR Codes.</li></ul><ul id="4c33b56d-8d99-4e7a-b1eb-b406562d0ae0" class="bulleted-list"><li style="list-style-type:disc">Padronize a ordem do PDF do Professor + Estudante ao mesclar: Professor primeiro.</li></ul><hr id="715ee22b-028b-4385-a06e-c03473769dc6"/><h2 id="c9ac94bf-566a-4b25-968b-6d5cf9241ab2" class="">Referências rápidas de tags</h2><ul id="380c69e1-a1ab-477d-95e4-8a558cdb2c5a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Seções destacadas: #SAIBAMAIS#, #CURIOSIDADE#, #DICAS#, #FIQUEATENTO#, #AQUINOMARANHAO#, #DESTAQUE1#...#DESTAQUE6#, #QUADRO1#...#QUADRO6#, #CITACAO#, #TOOLTIP#, #TOOLTIPTITULO#</mark></li></ul><ul id="d4c8abaa-df71-4e5c-893a-2aaf9d5fe827" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Títulos e estrutura: #Capítulo#, #TITULO2#, #TITULO3#, #TITULOTABELA#</mark></li></ul><ul id="8c075f3c-0d74-41c1-89c9-cfee2982e186" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Layout: #FONTE#, #QUEBRADEPAGINA#</mark></li></ul><hr id="e9a48b4d-7fd2-4251-b97a-11ac16738139"/><h2 id="15d8ae86-4bde-40f7-9ab1-4040c1d67645" class="">Integrações e plataformas</h2><ul id="715b3dfd-8dbf-46d4-9e4a-80508cd7053d" class="bulleted-list"><li style="list-style-type:disc"><strong>PDF Generator</strong>: validação de tags, aplicação de estilos e pré-visualização.</li></ul><ul id="dda582ee-4e46-4e98-828b-13477f02d760" class="bulleted-list"><li style="list-style-type:disc"><strong>EduGenerator</strong>: empacotamento em <strong>TAR.GZ</strong> para AVA.</li></ul><ul id="a04836e7-e625-49b4-95ca-7ed4b5154ec6" class="bulleted-list"><li style="list-style-type:disc"><strong>iLovePDF</strong>: mesclar PDFs do Professor e do Estudante.</li></ul><ul id="a4a14819-59ce-4542-816f-17638b5d64a1" class="bulleted-list"><li style="list-style-type:disc"><strong>AVA</strong>: importação, organização e publicação do curso.</li></ul><figure class="callout" style="white-space:pre-wrap;display:flex" id="dd9545dd-b492-4f6f-9b06-ad49285ca21f"><div style="width:100%"><p id="40c7cf07-ee67-4db4-9eef-2f6035283507" class=""><strong>Acesso Rápido</strong></p><p id="269d3b76-99e9-47a6-b8d4-a9cde751a355" class=""><a href="http://145.223.92.122:5175/login">PDF Generator (IP)</a> · <a href="https://webdoc2pdf.pdinfinita.com/login">PDF Generator (URL)</a> · <a href="https://drive.google.com/drive/folders/15DUWysbtmOyplrau8rfwwrL4_jCR1hon?usp=sharing">Capas por eixo</a> · <a href="https://www.ilovepdf.com/pt/juntar_pdf">Mesclar PDFs</a> · <a href="https://edugenerator.pdinfinita.com/login">EduGenerator</a> · <a href="https://studio.ipgc.org.br/">Studio IPGC</a></p></div></figure><hr id="2f74fc8c-2438-49a8-a653-47287cae39d7"/><h2 id="06891fdb-c407-4d38-8540-1098fc73ee5c" class="">Encerramento</h2><p id="2e4a3b99-3960-49eb-a60c-075129338499" class="">Este fluxo garante padronização entre Estudante e Professor, reduz retrabalho e assegura conformidade com os eixos acordados. Siga os checklists, valide cada etapa e publique com segurança.</p><hr id="aa0f763b-830e-4eaf-99f3-5378315a5210"/><h2 id="31a3aea0-9bf5-48c2-93ef-198b8775718c" class="">Mapa Rápido do Processo</h2><ol type="1" id="b8237aeb-0036-43ea-9f78-a2323981f3c3" class="numbered-list" start="1"><li>Revisão de tageamento no DOCX → validar capítulos e referências no <strong>PDF Generator</strong></li></ol><ol type="1" id="81171547-773b-40ed-b4fa-5a77a3cff991" class="numbered-list" start="2"><li>Geração do PDF com capas do curso e por capítulo</li></ol><ol type="1" id="b6bf5303-a59f-46c9-a06c-2b0cbbb10969" class="numbered-list" start="3"><li>Mesclar PDFs para o Professor: Professor + Estudante (nessa ordem)</li></ol><ol type="1" id="73c20904-9513-433c-9e7d-35772b3281f7" class="numbered-list" start="4"><li>Conversão no <strong>EduGenerator</strong> → gerar <strong>TAR.GZ</strong></li></ol><ol type="1" id="261880e6-402a-4ae8-923b-59776804b39a" class="numbered-list" start="5"><li>Criar curso no <strong>AVA</strong> → importar <strong>TAR.GZ</strong> → ajustar estrutura conforme fileserver</li></ol><ol type="1" id="66cb6e77-6fd1-4f58-89d8-4b3f09bef959" class="numbered-list" start="6"><li>Remover “INTRODUCAO_CAPITULO” e “SINTETIZANDO” em todos os capítulos</li></ol><ol type="1" id="dc826854-2348-4a5f-b714-6f9871cb4406" class="numbered-list" start="7"><li>Publicar capítulos no <strong>AVA</strong></li></ol><ol type="1" id="53f5ff8e-ccc4-4df5-b707-55ed842418ac" class="numbered-list" start="8"><li>Ajustar “PDF dos livros” e “Nome de Exibição do Curso”</li></ol><ol type="1" id="32e7737c-62bf-4308-bcb5-50a65d6aa503" class="numbered-list" start="9"><li>Subir PDFs finais no Drive do IPGC por eixo e curso</li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
